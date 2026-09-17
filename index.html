@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lewis &amp; Klein Associates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1B2E;
+    --ink-soft:#1C2D45;
+    --cream:#FAF8F4;
+    --cream-dim:#F1ECE2;
+    --slate:#5B7285;
+    --slate-light:#8CA0AF;
+    --sage:#4E6E5D;
+    --sage-hover:#3C5849;
+    --line: rgba(15,27,46,0.12);
+    --max: 760px;
+    --wide: 1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit;}
+  p{margin:0 0 1em 0;}
+  img{max-width:100%;display:block;}
+
+  /* ---- Nav ---- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(15,27,46,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(250,248,244,0.1);
+  }
+  .nav-inner{
+    max-width:var(--wide);
+    margin:0 auto;
+    padding:18px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .wordmark{
+    font-family:'Newsreader', serif;
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:0.2px;
+    text-decoration:none;
+    color:var(--cream);
+  }
+  .wordmark span{color:#8FB09E;}
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:34px;
+    margin:0;padding:0;
+  }
+  nav a{
+    text-decoration:none;
+    font-size:15px;
+    color:#A9BAC7;
+    transition:color 0.15s ease;
+  }
+  nav a:hover, nav a:focus-visible{color:var(--cream);}
+  nav a:focus-visible{outline:2px solid var(--sage); outline-offset:4px; border-radius:2px;}
+
+  /* ---- Sections ---- */
+  section{
+    max-width:var(--wide);
+    margin:0 auto;
+    padding:96px 32px;
+  }
+  section.tight{padding-top:64px; padding-bottom:64px;}
+  .prose{max-width:var(--max);}
+  .eyebrow-free{margin-bottom:20px;}
+
+  /* Hero */
+  #home{padding-top:88px;}
+  .hero{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero-graphic{
+    width:100%;
+    max-width:420px;
+    justify-self:end;
+  }
+  .hero h1{
+    font-size:44px;
+    line-height:1.18;
+    letter-spacing:-0.3px;
+  }
+  .hero p.lede{
+    font-size:19px;
+    color:var(--slate);
+    max-width:520px;
+    margin-top:22px;
+  }
+  .hero-cta{
+    margin-top:34px;
+    display:inline-flex;
+    gap:16px;
+    align-items:center;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--sage);
+    color:var(--cream);
+    text-decoration:none;
+    padding:13px 26px;
+    border-radius:3px;
+    font-size:15px;
+    font-weight:500;
+    transition:background 0.15s ease;
+  }
+  .btn:hover{background:var(--sage-hover);}
+  .btn-ghost{
+    color:var(--ink);
+    text-decoration:none;
+    font-size:15px;
+    border-bottom:1px solid var(--slate-light);
+    padding-bottom:2px;
+  }
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  /* Gap statement */
+  .gap{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .gap p{
+    font-family:'Newsreader', serif;
+    font-size:24px;
+    line-height:1.5;
+    max-width:680px;
+    color:var(--ink-soft);
+  }
+  .gap strong{color:var(--sage); font-weight:500;}
+
+  /* Principles */
+  .principles-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:44px 56px;
+    margin-top:44px;
+  }
+  .principle h3{
+    font-size:19px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .principle p{color:var(--slate); font-size:15.5px; margin:0;}
+
+  /* Trusted-by */
+  .trusted{background:var(--cream-dim);}
+  .trusted h2{font-size:15px; font-weight:500; color:var(--slate); font-family:'IBM Plex Sans',sans-serif; margin-bottom:28px;}
+  .logo-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:48px;
+    align-items:center;
+  }
+  .logo-mark{
+    font-family:'Newsreader', serif;
+    font-size:18px;
+    color:var(--ink-soft);
+    border:1px solid var(--line);
+    padding:14px 22px;
+    border-radius:2px;
+    background:var(--cream);
+  }
+  .trusted-note{margin-top:28px; font-size:14px; color:var(--slate-light); max-width:520px;}
+
+  /* Track record — dark band for contrast */
+  .band-dark{background:var(--ink); color:var(--cream);}
+  .band-dark .section-head h2{color:var(--cream);}
+  .band-dark .section-head p{color:#A9BAC7;}
+  .track-item{
+    border-top:1px solid rgba(250,248,244,0.14);
+    padding:28px 0;
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:24px;
+  }
+  .track-item:last-child{border-bottom:1px solid rgba(250,248,244,0.14);}
+  .track-item h3{font-size:17px; font-weight:600; color:var(--cream);}
+  .track-item p{color:#A9BAC7; margin:0; font-size:15.5px;}
+
+  /* Section headers */
+  .section-head{margin-bottom:48px;}
+  .section-head h2{font-size:32px;}
+  .section-head p{color:var(--slate); font-size:16.5px; max-width:560px; margin-top:12px;}
+
+  /* Services */
+  .service-row{
+    border-top:1px solid var(--line);
+    padding:30px 0;
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:32px;
+  }
+  .service-row:last-of-type{border-bottom:1px solid var(--line);}
+  .service-row h3{font-size:18px; font-weight:600;}
+  .service-row p{color:var(--slate); margin:0; font-size:15.5px; max-width:480px;}
+
+  .discovery{
+    margin-top:72px;
+    background:var(--ink);
+    color:var(--cream);
+    border-radius:4px;
+    padding:44px 48px;
+  }
+  .discovery h3{color:var(--cream); font-size:22px; margin-bottom:14px;}
+  .discovery p{color:#C9D2D9; max-width:560px; font-size:15.5px;}
+  .discovery .btn{background:var(--sage); margin-top:8px;}
+
+  /* Staff — sage-tinted band */
+  .band-sage{background:#EEF2EC; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .staff-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:52px 48px;
+  }
+  .staff-card{display:flex; gap:20px;}
+  .avatar{
+    flex-shrink:0;
+    width:76px;height:76px;
+    border-radius:50%;
+    background:var(--sage);
+    color:var(--cream);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Newsreader', serif;
+    font-size:22px;
+    font-weight:500;
+  }
+  .staff-info h3{font-size:18px; font-weight:600;}
+  .staff-role{color:var(--sage); font-size:14px; margin-top:2px; font-weight:500;}
+  .staff-cred{color:var(--slate-light); font-size:13.5px; margin-top:4px;}
+  .staff-bio{color:var(--slate); font-size:15px; margin-top:10px; margin-bottom:0;}
+  .staff-note{
+    margin-top:56px;
+    font-size:14px;
+    color:var(--slate-light);
+    border-top:1px solid var(--line);
+    padding-top:24px;
+  }
+
+  /* Contact */
+  #contact .prose h2{font-size:30px; margin-bottom:18px;}
+  #contact .prose > p{font-size:17px; color:var(--slate); max-width:520px;}
+  .contact-emails{margin-top:36px;}
+  .contact-emails a{
+    display:block;
+    font-family:'Newsreader', serif;
+    font-size:24px;
+    text-decoration:none;
+    color:var(--ink);
+    padding:16px 0;
+    border-top:1px solid var(--line);
+    transition:color 0.15s ease;
+  }
+  .contact-emails a:last-child{border-bottom:1px solid var(--line);}
+  .contact-emails a:hover{color:var(--sage);}
+  .response-note{margin-top:20px; font-size:14px; color:var(--slate-light);}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px;
+  }
+  .footer-inner{
+    max-width:var(--wide);
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13.5px;
+    color:var(--slate-light);
+  }
+
+  @media (max-width: 760px){
+    .nav-inner{padding:16px 20px;}
+    nav ul{gap:20px;}
+    section{padding:64px 20px;}
+    .hero h1{font-size:32px;}
+    .hero{grid-template-columns:1fr; gap:32px;}
+    .hero-graphic{max-width:280px; justify-self:start; order:-1;}
+    .principles-grid{grid-template-columns:1fr;}
+    .track-item{grid-template-columns:1fr; gap:8px;}
+    .service-row{grid-template-columns:1fr; gap:10px;}
+    .staff-grid{grid-template-columns:1fr;}
+    .discovery{padding:32px 26px;}
+    .footer-inner{flex-direction:column; gap:8px; align-items:flex-start;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="#home" class="wordmark">Lewis <span>&amp;</span> Klein</a>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#staff">Staff</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HOME -->
+<section id="home">
+  <div class="hero">
+    <div class="hero-copy">
+      <h1>Ethical consultancy for public services and organisations navigating change.</h1>
+      <p class="lede">We help public sector bodies and businesses improve how they operate — policy design, training, implementation, and the technology underneath it — without asking you to abandon the systems and culture you already have.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn">Get in touch</a>
+        <a href="#services" class="btn-ghost">See our services</a>
+      </div>
+    </div>
+    <svg class="hero-graphic" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract diagram of connected nodes representing policy, data and people working together">
+      <line x1="90" y1="80" x2="230" y2="60" stroke="#5B7285" stroke-width="1.2" stroke-opacity="0.55"/>
+      <line x1="230" y1="60" x2="340" y2="140" stroke="#5B7285" stroke-width="1.2" stroke-opacity="0.55"/>
+      <line x1="90" y1="80" x2="120" y2="210" stroke="#5B7285" stroke-width="1.2" stroke-opacity="0.55"/>
+      <line x1="230" y1="60" x2="180" y2="220" stroke="#5B7285" stroke-width="1.2" stroke-opacity="0.4"/>
+      <line x1="180" y1="220" x2="120" y2="210" stroke="#5B7285" stroke-width="1.2" stroke-opacity="0.55"/>
+      <line x1="180" y1="220" x2="300" y2="270" stroke="#5B7285" stroke-width="1.2" stroke-opacity="0.4"/>
+      <line x1="340" y1="140" x2="300" y2="270" stroke="#5B7285" stroke-width="1.2" stroke-opacity="0.4"/>
+      <line x1="120" y1="210" x2="110" y2="330" stroke="#5B7285" stroke-width="1.2" stroke-opacity="0.55"/>
+      <line x1="300" y1="270" x2="230" y2="340" stroke="#5B7285" stroke-width="1.2" stroke-opacity="0.4"/>
+      <line x1="110" y1="330" x2="230" y2="340" stroke="#5B7285" stroke-width="1.2" stroke-opacity="0.4"/>
+
+      <circle cx="90" cy="80" r="7" fill="#0F1B2E"/>
+      <circle cx="230" cy="60" r="10" fill="#4E6E5D"/>
+      <circle cx="340" cy="140" r="6" fill="#0F1B2E"/>
+      <circle cx="180" cy="220" r="13" fill="#4E6E5D"/>
+      <circle cx="120" cy="210" r="7" fill="#0F1B2E"/>
+      <circle cx="300" cy="270" r="6" fill="#0F1B2E"/>
+      <circle cx="110" cy="330" r="8" fill="#0F1B2E"/>
+      <circle cx="230" cy="340" r="6" fill="#4E6E5D"/>
+    </svg>
+  </div>
+</section>
+
+<section class="gap tight">
+  <p>Organisations are usually offered a choice: social consultants who don't understand the data, or tech firms that don't understand the legal and cultural realities of public service. <strong>Lewis &amp; Klein is the middle ground</strong> — researchers, data scientists, and systems architects working to one standard: evidence-led, ethically transparent, built around your organisation rather than a template.</p>
+</section>
+
+<section id="principles">
+  <div class="section-head">
+    <h2>How we work</h2>
+  </div>
+  <div class="principles-grid">
+    <div class="principle">
+      <h3>Work with what you have</h3>
+      <p>No one-size-fits-all templates. We integrate with your existing culture and legacy systems rather than forcing wholesale change.</p>
+    </div>
+    <div class="principle">
+      <h3>See what's coming</h3>
+      <p>We use data science to model demand and capacity, so resourcing decisions are proactive rather than reactive.</p>
+    </div>
+    <div class="principle">
+      <h3>Say what's true</h3>
+      <p>If your data isn't ready for AI or automation, we'll tell you before we take your money. Pricing is fixed and fair.</p>
+    </div>
+    <div class="principle">
+      <h3>Leave you better equipped</h3>
+      <p>Every engagement includes knowledge transfer — your team should be more capable when we leave than when we arrived.</p>
+    </div>
+  </div>
+</section>
+
+<section class="trusted tight">
+  <h2>Who we've worked with</h2>
+  <div class="logo-row">
+    <span class="logo-mark">Lincolnshire Police</span>
+    <span class="logo-mark">University of Lincoln</span>
+    <span class="logo-mark">Open Rights Group</span>
+  </div>
+  <p class="trusted-note">Demand and capacity modelling and process automation for Lincolnshire Police; commissioned project work for the University of Lincoln and the Open Rights Group.</p>
+</section>
+
+<section id="track-record" class="band-dark">
+  <div class="section-head">
+    <h2>Recent work</h2>
+  </div>
+  <div class="track-item">
+    <h3>Lincolnshire Police</h3>
+    <p>Research projects supporting the Force's operational and policy decisions.</p>
+  </div>
+  <div class="track-item">
+    <h3>University of Lincoln</h3>
+    <p>Data analysis on commissioned project work.</p>
+  </div>
+  <div class="track-item">
+    <h3>Open Rights Group</h3>
+    <p>Research and reporting on Prevent and Freedom of Information.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-head">
+    <h2>Services</h2>
+    <p>We support public sector bodies and businesses in improving their services — including, where it's the right fit, the IT infrastructure underneath them. Every engagement is grounded in ethical practice: transparent about what your data can and can't do, and about what will and won't work for your organisation.</p>
+  </div>
+
+  <div class="service-row">
+    <h3>Bespoke Policy Development &amp; Evaluation</h3>
+    <p>Policy design and review grounded in academic research and legal reality, not generic templates.</p>
+  </div>
+  <div class="service-row">
+    <h3>Predictive Demand Modelling &amp; Data Audits</h3>
+    <p>Understand what's coming before it arrives, and know whether your data can actually support it.</p>
+  </div>
+  <div class="service-row">
+    <h3>Data Analysis</h3>
+    <p>Turning operational data into decisions frontline staff and leadership can actually use.</p>
+  </div>
+  <div class="service-row">
+    <h3>Cloud/IoT Infrastructure &amp; Automation</h3>
+    <p>Modernising the technical backbone where it improves service delivery, without disruption for its own sake.</p>
+  </div>
+  <div class="service-row">
+    <h3>Staff Training</h3>
+    <p>Data literacy, ethical use of technology, and sustainable policy design, delivered so your team can carry it forward without us.</p>
+  </div>
+
+  <div class="discovery">
+    <h3>We don't lead with a sales pitch</h3>
+    <p>Every relationship starts with a Discovery Phase — a short questionnaire on your bottlenecks, your data environment, and your organisation's readiness for change. From that, we give you a straight answer on how, or whether, we can help.</p>
+    <a href="#contact" class="btn">Start a conversation</a>
+  </div>
+</section>
+
+<!-- STAFF -->
+<section id="staff" class="band-sage">
+  <div class="section-head">
+    <h2>Staff</h2>
+  </div>
+  <div class="staff-grid">
+    <div class="staff-card">
+      <div class="avatar">JS</div>
+      <div class="staff-info">
+        <h3>Dr. Joshua Skoczylis</h3>
+        <div class="staff-role">Director</div>
+        <div class="staff-cred">PhD (Leeds) · MSc Criminology and Criminal Justice (Oxford) · MSc Data Science and Applied Analytics (Lincoln)</div>
+        <p class="staff-bio">Works across public policy, criminology, and data science, focused on the intersection of policy and security. Ensures every technical solution is grounded in academic rigour and legal reality.</p>
+      </div>
+    </div>
+    <div class="staff-card">
+      <div class="avatar">HK</div>
+      <div class="staff-info">
+        <h3>Dr. Hamoon Khelghat-Doost</h3>
+        <div class="staff-role">Senior Consultant, Security and Policy</div>
+        <div class="staff-cred">PhD (National University of Singapore)</div>
+        <p class="staff-bio">An international authority on global security and sustainable development. Brings a global perspective that keeps our policy frameworks inclusive and aligned with international best practice.</p>
+      </div>
+    </div>
+    <div class="staff-card">
+      <div class="avatar">MA</div>
+      <div class="staff-info">
+        <h3>Dr. Mohammed Al-Khafajiy</h3>
+        <div class="staff-role">Senior Consultant, Technology and AI</div>
+        <div class="staff-cred">PhD (LJMU) · FHEA</div>
+        <p class="staff-bio">Architect of our technical solutions. Specialist in Cloud/Fog computing and cognitive systems, focused on automating complex workflows and making large datasets usable for frontline staff.</p>
+      </div>
+    </div>
+    <div class="staff-card">
+      <div class="avatar">BF</div>
+      <div class="staff-info">
+        <h3>Brittany Tomlinson Fox</h3>
+        <div class="staff-role">Junior Consultant, Social Policy</div>
+        <div class="staff-cred">MSc Social Policy (Sheffield) · PhD Candidate (University of Lincoln)</div>
+        <p class="staff-bio">Leads qualitative research, ensuring data models stay grounded in human-centred social policy and genuine community impact.</p>
+      </div>
+    </div>
+  </div>
+  <p class="staff-note">Photographs to follow. Initials are placeholders.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="prose">
+    <h2>Let's discuss your challenges</h2>
+    <p>If you're looking for a partner who values academic rigour, technical competence, and honest pricing over a polished slide deck, we'd welcome a conversation.</p>
+    <div class="contact-emails">
+      <a href="mailto:Admin@lewisandklein.org">Admin@lewisandklein.org</a>
+      <a href="mailto:JSkoczylis@lewisandklein.org">JSkoczylis@lewisandklein.org</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Lewis and Klein Associates Limited · Registered in England and Wales, company no. 11718063</span>
+    <span>Public sector &amp; business consultancy</span>
+  </div>
+</footer>
+
+</body>
+</html>
